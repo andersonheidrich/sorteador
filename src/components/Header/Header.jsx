@@ -8,21 +8,19 @@ const Header = () => {
     <Style.Container>
       <Style.Navigation>
         <Style.Home>
-          <div>
+          <div className="menu-item">
             <span onClick={() => navigate("/")}>Home</span>
           </div>
         </Style.Home>
         <Style.Menu>
-          <div className="store-nav">
-            <div className="store-menu-item">
-              <span onClick={() => navigate("/americano")}>Americano</span>
-            </div>
-            <div className="store-menu-item">
-              <span onClick={() => navigate("/duplas")}>Duplas</span>
-            </div>
-            <div className="store-menu-item">
-              <span onClick={() => navigate("/simples")}>Simples</span>
-            </div>
+          <div className="menu-item">
+            <span onClick={() => navigate("/americano")}>Americano</span>
+          </div>
+          <div className="menu-item">
+            <span onClick={() => navigate("/duplas")}>Duplas</span>
+          </div>
+          <div className="menu-item">
+            <span onClick={() => navigate("/simples")}>Simples</span>
           </div>
         </Style.Menu>
       </Style.Navigation>

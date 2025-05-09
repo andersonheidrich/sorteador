@@ -8,6 +8,19 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #ff8c00;
+  font-family: Barlow, sans-serif;
+
+  span {
+    margin-top: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+
+    &:hover {
+      color: #505050;
+    }
+  }
 `;
 
 export const Navigation = styled.div`
@@ -26,54 +39,13 @@ export const Menu = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  font-family: Barlow, sans-serif;
 
-  .user-nav {
-    display: flex;
-  }
-
-  .user-menu-item {
-    display: flex;
-    font-weight: bold;
-    color: black;
-    padding: 8px;
-    margin: 0 8px 16px 8px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    cursor: pointer;
-
-    &:hover {
-      color: #ff8c00;
-      background-color: black;
-    }
-  }
-
-  .store-nav {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .store-menu-item {
+  .menu-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 140px;
     margin: 0 8px 0 8px;
-
-    span {
-      margin-top: 4px;
-      font-size: 18px;
-      font-weight: bold;
-      color: black;
-      cursor: pointer;
-
-      &:hover {
-        color: #505050;
-      }
-    }
   }
 `;
