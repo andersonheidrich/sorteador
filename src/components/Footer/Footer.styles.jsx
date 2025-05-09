@@ -14,7 +14,7 @@ export const SocialMedias = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-around;
-  padding: 64px;
+  padding: 64px 64px 0 64px;
 
   a {
     display: flex;
