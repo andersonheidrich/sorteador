@@ -14,13 +14,10 @@ const Header = () => {
         </Style.Home>
         <Style.Menu>
           <div className="menu-item">
-            <span onClick={() => navigate("/americano")}>Americano</span>
+            <span onClick={() => navigate("/sorteio")}>Sorteio</span>
           </div>
           <div className="menu-item">
-            <span onClick={() => navigate("/duplas")}>Duplas</span>
-          </div>
-          <div className="menu-item">
-            <span onClick={() => navigate("/simples")}>Simples</span>
+            <span onClick={() => navigate("/login")}>Login</span>
           </div>
         </Style.Menu>
       </Style.Navigation>
