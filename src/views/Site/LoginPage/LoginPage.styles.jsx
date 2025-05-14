@@ -5,7 +5,6 @@ export const Container = styled.div`
   height: 90%;
   align-items: center;
   justify-content: center;
-  /* background-color: #f0f2f5; */
   font-family: Raleway, sans-serif;
 `;
 
