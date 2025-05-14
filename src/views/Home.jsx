@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Drawing, LoginPage, Main } from "./Site";
+import { Drawing, LoginPage, Main, Profile } from "./Site";
 import American from "./Site/Drawing/Formats/American";
 import Doubles from "./Site/Drawing/Formats/Doubles";
 import Single from "./Site/Drawing/Formats/Single";
@@ -11,16 +11,17 @@ import PrivateRoute from "../routes/PrivateRoute";
 const Home = () => {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <Main />
-          // <PrivateRoute>
-          // </PrivateRoute>
-        }
-      />
+      <Route path="/" element={<Main />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="*" element={<LoginPage />} />
+      <Route
+        path="/perfil"
+        element={
+          // <PrivateRoute>
+          // </PrivateRoute>
+          <Profile />
+        }
+      />
       <Route path="/sorteio" element={<Drawing />} />
       <Route path="/sorteio/americano" element={<American />} />
       <Route path="/sorteio/americano/grupos" element={<AmericanGroups />} />
