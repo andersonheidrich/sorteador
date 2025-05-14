@@ -22,12 +22,10 @@ const Header = () => {
   return (
     <Style.Container>
       <Style.Navigation>
-        <Style.Home>
+        <Style.Menu>
           <div className="menu-item">
             <span onClick={() => navigate("/")}>Home</span>
           </div>
-        </Style.Home>
-        <Style.Menu>
           <div className="menu-item">
             <span onClick={() => navigate("/sorteio")}>Sorteio</span>
           </div>

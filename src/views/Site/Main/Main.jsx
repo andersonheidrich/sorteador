@@ -6,6 +6,14 @@ const Main = () => {
       <Style.Title>
         <h1>Sorteador Online</h1>
       </Style.Title>
+      <Style.Content>
+        <Style.Subtitle>
+          <h2>
+            Realize sorteios para torneios de beach tennis de forma rápida e
+            fácil.
+          </h2>
+        </Style.Subtitle>
+      </Style.Content>
     </Style.Container>
   );
 };

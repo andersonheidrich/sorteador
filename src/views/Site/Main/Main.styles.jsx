@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BGimg from "./../../../images/background.png";
 
 export const Container = styled.div`
   display: flex;
@@ -7,6 +8,12 @@ export const Container = styled.div`
   width: 100%;
   height: 90%;
   font-family: Raleway, sans-serif;
+  background-image: url(${BGimg});
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  color: #3b0a59;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 `;
 
 export const Title = styled.div`
