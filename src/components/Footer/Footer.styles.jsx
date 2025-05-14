@@ -5,8 +5,8 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 60px;
   align-items: center;
-  color: black;
-  background-color: #ff8c00;
+  /* color: black; */
+  /* background-color: #ff8c00; */
   font-family: Barlow, sans-serif;
 `;
 
