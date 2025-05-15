@@ -12,7 +12,8 @@ export const Container = styled.div`
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
-  color: #3b0a59;
+  /* color: #3b0a59; */
+  color: #800080;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 `;
 
