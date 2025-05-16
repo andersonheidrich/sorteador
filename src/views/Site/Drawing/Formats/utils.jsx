@@ -77,6 +77,40 @@ export const generateAmericanFormatRounds = (players, numRounds) => {
   return rounds;
 };
 
+// export const generateIndividualMatchRounds = (players) => {
+//   const groups = [];
+//   const shuffled = shuffleArray(players.slice());
+
+//   // Agrupar jogadores de 3 em 3
+//   for (let i = 0; i < shuffled.length; i += 3) {
+//     const group = shuffled.slice(i, i + 3);
+
+//     // Verificação extra (opcional, já garantido pelo slice)
+//     if (group.length > 3) {
+//       throw new Error("Grupo com mais de 3 jogadores detectado.");
+//     }
+
+//     groups.push(group);
+//   }
+
+//   // Para cada grupo, gerar 3 rodadas (máximo de 1 confronto por rodada)
+//   const allRounds = [[], [], []]; // rodada 1, 2, 3
+
+//   groups.forEach((group) => {
+//     if (group.length === 3) {
+//       allRounds[0].push([group[0], group[1]]);
+//       allRounds[1].push([group[0], group[2]]);
+//       allRounds[2].push([group[1], group[2]]);
+//     } else if (group.length === 2) {
+//       allRounds[0].push([group[0], group[1]]);
+//     } else if (group.length === 1) {
+//       allRounds[0].push([group[0], null]);
+//     }
+//   });
+
+//   return allRounds;
+// };
+
 export const groupPlayers = (players, numGroups) => {
   const shuffled = [...players].sort(() => 0.5 - Math.random());
   const groups = Array.from({ length: numGroups }, () => []);
@@ -94,17 +128,13 @@ export const generateXLSX = (rounds) => {
 
     groupRounds.forEach((rodada, rodadaIdx) => {
       data.push([`Rodada ${rodadaIdx + 1}`]);
-      data.push(["Quadra", "Dupla 1", "Dupla 2"]);
+      data.push(["Dupla 1", "Dupla 2"]);
 
-      rodada.forEach((quadra, quadraIdx) => {
-        data.push([
-          `Quadra ${quadraIdx + 1}`,
-          quadra.dupla1.join(" & "),
-          quadra.dupla2.join(" & "),
-        ]);
+      rodada.forEach((quadra) => {
+        data.push([quadra.dupla1.join(" & "), quadra.dupla2.join(" & ")]);
       });
 
-      data.push([]); // Linha vazia entre rodadas
+      data.push([]);
     });
 
     const worksheet = XLSX.utils.aoa_to_sheet(data);
@@ -113,7 +143,7 @@ export const generateXLSX = (rounds) => {
 
   const wbout = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
   const blob = new Blob([wbout], { type: "application/octet-stream" });
-  saveAs(blob, "sorteio_beach_tennis.xlsx");
+  saveAs(blob, "sorteio.xlsx");
 };
 
 export const generatePDF = (rounds) => {
@@ -130,10 +160,10 @@ export const generatePDF = (rounds) => {
       doc.text(`Rodada ${rodadaIdx + 1}:`, 10, y);
       y += 6;
 
-      rodada.forEach((quadra, quadraIdx) => {
-        const line = `Quadra ${quadraIdx + 1}: ${quadra.dupla1.join(
+      rodada.forEach((quadra) => {
+        const line = `${quadra.dupla1.join(" & ")} vs ${quadra.dupla2.join(
           " & "
-        )} vs ${quadra.dupla2.join(" & ")}`;
+        )}`;
         doc.text(line, 15, y);
         y += 6;
       });
@@ -146,5 +176,5 @@ export const generatePDF = (rounds) => {
     });
   });
 
-  doc.save("sorteio_beach_tennis.pdf");
+  doc.save("sorteio.pdf");
 };

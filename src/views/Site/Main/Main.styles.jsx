@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 90%;
+  min-height: 90%;
   font-family: Raleway, sans-serif;
   background-image: url(${BGimg});
   background-repeat: no-repeat;

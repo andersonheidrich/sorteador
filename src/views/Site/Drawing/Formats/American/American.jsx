@@ -9,7 +9,6 @@ const American = () => {
   const [players, setPlayers] = useState([]);
   const [numRounds, setNumRounds] = useState(3);
   const [numGroups, setNumGroups] = useState(1);
-  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -20,7 +19,6 @@ const American = () => {
       .filter((name) => name.length > 0 && !players.includes(name));
     setPlayers([...players, ...cleanedList]);
     setPlayerListText("");
-    setError("");
   };
 
   const removePlayer = (nameToRemove) => {
@@ -29,9 +27,7 @@ const American = () => {
 
   const handleDraw = () => {
     if (numGroups > players.length) {
-      setError(
-        "O número de grupos não pode ser maior que o número de jogadores."
-      );
+      alert("O número de grupos não pode ser maior que o número de jogadores.");
       return;
     }
     const grouped = groupPlayers(players, numGroups);
@@ -39,8 +35,7 @@ const American = () => {
       generateAmericanFormatRounds(group, numRounds)
     );
     setNumRounds(roundsByGroup);
-    setError("");
-    navigate("/americano/grupos", {
+    navigate("/sorteio/americano/grupos", {
       state: { rounds: roundsByGroup, players: grouped },
     });
   };
@@ -108,7 +103,6 @@ const American = () => {
                 />
               </div>
             </div>
-            {error && <p style={{ color: "red" }}>{error}</p>}
             <Style.Button
               className="groups-button"
               onClick={handleDraw}

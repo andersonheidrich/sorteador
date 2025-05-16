@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 90%;
+  min-height: 90%;
   font-family: Raleway, sans-serif;
 `;
 
@@ -17,15 +17,17 @@ export const Content = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  align-items: center;
 `;
 
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
   width: 560px;
-  height: 610px;
+  min-height: 610px;
   margin: 0 32px;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 16px;
 `;
 
 export const Subtitle = styled.div`
