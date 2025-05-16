@@ -93,7 +93,7 @@ const Drawing = () => {
             </li>
           </Style.Text>
         </Style.Column>
-        <Style.Column>
+        {/* <Style.Column>
           <Style.Subtitle>
             <Style.FormatButton onClick={() => navigate("/sorteio/simples")}>
               Simples
@@ -133,7 +133,7 @@ const Drawing = () => {
               </ol>
             </li>
           </Style.Text>
-        </Style.Column>
+        </Style.Column> */}
       </Style.Content>
     </Style.Container>
   );
