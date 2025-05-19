@@ -17,9 +17,8 @@ const Doubles = () => {
       .map((line) => line.trim())
       .filter((line) => line !== "");
 
-    setEntries(lines);
+    setEntries((prev) => [...prev, ...lines]);
     setInputText("");
-    setGroups([]); // limpa grupos anteriores
   };
 
   const removeEntry = (index) => {
@@ -55,7 +54,7 @@ const Doubles = () => {
       if (i + 1 < shuffled.length) {
         duplasAleatorias.push(`${shuffled[i]} e ${shuffled[i + 1]}`);
       } else {
-        duplasAleatorias.push(shuffled[i]); // sozinho
+        duplasAleatorias.push(shuffled[i]);
       }
     }
 
@@ -64,23 +63,58 @@ const Doubles = () => {
 
   const sortGroups = () => {
     const duplas = generateDuplas();
-    const shuffled = shuffleArray(duplas);
-    const grupos = [];
-    let i = 0;
 
-    while (i < shuffled.length) {
-      const remaining = shuffled.length - i;
-
-      if (remaining === 4 || remaining === 2) {
-        grupos.push(shuffled.slice(i, i + remaining));
-        break;
-      } else {
-        grupos.push(shuffled.slice(i, i + 3));
-        i += 3;
-      }
+    const duplasComJogadorSozinho = duplas.filter((d) => !d.includes(" e "));
+    if (duplasComJogadorSozinho.length > 0) {
+      const count = duplasComJogadorSozinho.length;
+      alert(
+        `Existe(m) ${count} jogador(es) sozinho(s) sem dupla. Por favor, adicione mais jogador(es) para formar as duplas ou ajuste as entradas.`
+      );
+      return;
     }
 
-    // Gerar rodadas (rounds) a partir dos grupos
+    const shuffled = shuffleArray(duplas);
+    let grupos = [];
+
+    const totalDuplas = shuffled.length;
+    const gruposDeTres = Math.floor(totalDuplas / 3);
+    let resto = totalDuplas % 3;
+
+    let i = 0;
+    for (; i < gruposDeTres * 3; i += 3) {
+      grupos.push(shuffled.slice(i, i + 3));
+    }
+
+    const duplasRestantes = shuffled.slice(i);
+
+    if (duplasRestantes.length === 1) {
+      const duplaExtra = duplasRestantes[0];
+
+      const grupoParaDividir = grupos.find((g) => g.length === 3);
+      if (!grupoParaDividir) {
+        alert("Não é possível reorganizar os grupos com a dupla restante.");
+        return;
+      }
+
+      grupos = grupos.filter((g) => g !== grupoParaDividir);
+
+      const novosGrupos = [
+        [grupoParaDividir[0], grupoParaDividir[1]],
+        [grupoParaDividir[2], duplaExtra],
+      ];
+
+      grupos.push(...novosGrupos);
+    } else if (duplasRestantes.length === 2 || duplasRestantes.length === 4) {
+      for (let j = 0; j < duplasRestantes.length; j += 2) {
+        grupos.push(duplasRestantes.slice(j, j + 2));
+      }
+    } else if (duplasRestantes.length !== 0) {
+      alert(
+        `Número inválido de duplas restantes (${duplasRestantes.length}). Ajuste para múltiplos de 3 ou sobras de 1, 2 ou 4.`
+      );
+      return;
+    }
+
     const rounds = grupos.map((grupo) => {
       const partidas = [];
       for (let i = 0; i < grupo.length; i++) {
@@ -90,8 +124,6 @@ const Doubles = () => {
           partidas.push({ dupla1, dupla2 });
         }
       }
-
-      // Agrupar as partidas em rodadas (simples: cada partida é uma rodada)
       return partidas.map((partida) => [partida]);
     });
 
@@ -114,7 +146,7 @@ const Doubles = () => {
           <Style.AddPlayersInput>
             <textarea
               rows="24"
-              placeholder="Digite um nome ou uma dupla por linha"
+              placeholder="Digite um nome ou uma dupla por linha (Ex: Jogador 1 e Jogador 2)"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
@@ -146,7 +178,7 @@ const Doubles = () => {
                 <div className="player-name">{name}</div>
                 <RemoveCircleIcon
                   style={{ color: "red", cursor: "pointer" }}
-                  onClick={() => removeEntry(name)}
+                  onClick={() => removeEntry(index)}
                 />
               </li>
             ))}
