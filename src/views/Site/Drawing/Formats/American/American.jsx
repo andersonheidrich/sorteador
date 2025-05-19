@@ -7,8 +7,8 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 const American = () => {
   const [playerListText, setPlayerListText] = useState("");
   const [players, setPlayers] = useState([]);
-  const [numRounds, setNumRounds] = useState(3);
   const [numGroups, setNumGroups] = useState(1);
+  const [roundsResult, setRoundsResult] = useState([]);
 
   const navigate = useNavigate();
 
@@ -26,15 +26,43 @@ const American = () => {
   };
 
   const handleDraw = () => {
-    if (numGroups > players.length) {
-      alert("O número de grupos não pode ser maior que o número de jogadores.");
+    const totalPlayers = players.length;
+
+    if (totalPlayers === 0) {
+      alert("Adicione jogadores antes de sortear.");
       return;
     }
+
+    if (totalPlayers % 4 !== 0) {
+      alert("O número de jogadores deve ser divisível por 4.");
+      return;
+    }
+
+    const expectedGroups = totalPlayers / 4;
+
+    if (numGroups !== expectedGroups) {
+      alert(
+        `Você deve formar exatamente ${expectedGroups} grupo(s) para ${totalPlayers} jogadores.`
+      );
+      return;
+    }
+
     const grouped = groupPlayers(players, numGroups);
+
+    const isValid = grouped.every((group) => group.length === 4);
+    if (!isValid) {
+      alert(
+        "Todos os grupos devem conter exatamente 4 jogadores. Sorteio cancelado."
+      );
+      return;
+    }
+
     const roundsByGroup = grouped.map((group) =>
-      generateAmericanFormatRounds(group, numRounds)
+      generateAmericanFormatRounds(group, 3)
     );
-    setNumRounds(roundsByGroup);
+
+    setRoundsResult(roundsByGroup);
+
     navigate("/sorteio/americano/grupos", {
       state: { rounds: roundsByGroup, players: grouped },
     });
@@ -75,6 +103,7 @@ const American = () => {
             </Style.Button>
           </Style.ButtonGroup>
         </Style.Column>
+
         <Style.Column>
           <Style.Subtitle>
             <h2>Jogadores ({players.length}):</h2>
@@ -90,6 +119,7 @@ const American = () => {
               </li>
             ))}
           </ul>
+
           <Style.Groups>
             <div className="groups-config">
               <div className="groups-number">
@@ -99,10 +129,11 @@ const American = () => {
                   value={numGroups}
                   onChange={(e) => setNumGroups(Number(e.target.value))}
                   min={1}
-                  max={players.length}
+                  max={Math.floor(players.length / 4)}
                 />
               </div>
             </div>
+
             <Style.Button
               className="groups-button"
               onClick={handleDraw}
