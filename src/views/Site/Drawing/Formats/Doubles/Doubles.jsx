@@ -153,14 +153,12 @@ const Doubles = () => {
           </Style.AddPlayersInput>
           <Style.ButtonGroup>
             <Style.Button
-              className="add-player"
               style={{ backgroundColor: "#218d3a" }}
               onClick={parseInput}
             >
               Adicionar
             </Style.Button>
             <Style.Button
-              className="remove-players"
               style={{ backgroundColor: "#dc3545" }}
               onClick={() => setInputText("")}
             >
@@ -184,9 +182,7 @@ const Doubles = () => {
             ))}
           </ul>
           <Style.Groups>
-            <Style.Button className="groups-button" onClick={sortGroups}>
-              Sortear Grupos
-            </Style.Button>
+            <Style.Button onClick={sortGroups}>Sortear Grupos</Style.Button>
           </Style.Groups>
         </Style.Column>
       </Style.Content>

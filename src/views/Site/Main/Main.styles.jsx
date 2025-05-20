@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import BGimg from "./../../../images/background.png";
 
 export const Container = styled.div`
   display: flex;
@@ -8,17 +7,22 @@ export const Container = styled.div`
   width: 100%;
   min-height: 90%;
   font-family: Raleway, sans-serif;
-  background-image: url(${BGimg});
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-  /* color: #3b0a59; */
   color: #800080;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 `;
 
 export const Title = styled.div`
   margin: 32px 0 16px 0;
+
+  h1 {
+    @media screen and (max-width: 768px) {
+      font-size: 28px;
+    }
+
+    @media screen and (max-width: 425px) {
+      font-size: 26px;
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -28,32 +32,50 @@ export const Content = styled.div`
   align-items: center;
 `;
 
-export const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 560px;
-  height: 610px;
-  margin: 0 32px;
-`;
+// export const Subtitle = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin-bottom: 16px;
+//   padding: 16px 40px 0 40px;
 
-export const Subtitle = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 16px;
-`;
+//   h2 {
+//     @media screen and (max-width: 1024px) {
+//       font-size: 22px;
+//     }
+
+//     @media screen and (max-width: 768px) {
+//       font-size: 20px;
+//     }
+
+//     @media screen and (max-width: 425px) {
+//       font-size: 18px;
+//     }
+//   }
+// `;
 
 export const Text = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin-bottom: 16px;
+  padding: 16px 40px 0 40px;
 
   li {
     padding: 8px;
     font-weight: bold;
-  }
+    font-size: 24px;
 
-  ol {
-    margin-left: 32px;
-    margin-top: 8px;
+    @media screen and (max-width: 1024px) {
+      font-size: 22px;
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: 425px) {
+      font-size: 18px;
+    }
   }
 `;

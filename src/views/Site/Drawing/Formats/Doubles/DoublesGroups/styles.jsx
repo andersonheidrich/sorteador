@@ -30,13 +30,21 @@ export const Column = styled.div`
   align-items: center;
   width: 96%;
   margin: 0 32px;
+
+  @media screen and (max-width: 425px) {
+    margin: 0 8px;
+  }
 `;
 
 export const Groups = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
   justify-content: space-between;
+
+  @media screen and (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
 
   .group {
     display: flex;
@@ -58,7 +66,6 @@ export const Groups = styled.div`
     flex-direction: column;
     margin-top: 8px;
     min-height: 76px;
-    /* font-weight: bold; */
 
     h4 {
       margin-right: 4px;
