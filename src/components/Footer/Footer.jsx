@@ -9,10 +9,6 @@ const Footer = () => {
       <h1>CONTATO</h1>
       <Style.SocialMedias>
         <div className="media">
-          <EmailIcon className="email-icon" />
-          <span>andersonheidrichleite@gmail.com</span>
-        </div>
-        <div className="media">
           <a
             href="https://www.linkedin.com/in/andersonheidrich/"
             target="_blank"
@@ -24,6 +20,10 @@ const Footer = () => {
           <a href="https://github.com/andersonheidrich/" target="_blank">
             <GitHubIcon className="media-icon" />
           </a>
+        </div>
+        <div className="media">
+          <EmailIcon className="email-icon" />
+          <span>andersonheidrichleite@gmail.com</span>
         </div>
       </Style.SocialMedias>
     </Style.Container>

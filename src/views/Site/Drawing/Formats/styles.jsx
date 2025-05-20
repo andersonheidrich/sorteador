@@ -22,14 +22,26 @@ export const Content = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 425px) {
+    flex-direction: column;
+  }
 `;
 
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
   width: 560px;
-  height: 610px;
+  min-height: 610px;
   margin: 0 32px;
+
+  @media screen and (max-width: 768px) {
+    margin: 0 16px;
+  }
+
+  @media screen and (max-width: 425px) {
+    width: 96%;
+  }
 
   .player-list {
     border: 1px solid black;
@@ -73,7 +85,6 @@ export const Groups = styled.div`
   .groups-config {
     display: flex;
     flex-direction: column;
-    height: 200px;
   }
 
   .groups-number {
@@ -81,6 +92,16 @@ export const Groups = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 12px;
+      width: 132px;
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+      width: 132px;
+    }
 
     h3 {
       margin-bottom: 4px;
@@ -92,10 +113,6 @@ export const Groups = styled.div`
       border-radius: 4px;
       border: 1px solid black;
     }
-  }
-
-  .groups-button {
-    width: 200px;
   }
 
   .rounds-number {
@@ -118,28 +135,6 @@ export const Groups = styled.div`
   }
 `;
 
-// export const ListPlayers = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 400px;
-//   height: 100%;
-//   margin-left: 64px;
-
-//   .player-list {
-//     border: 2px solid black;
-//   }
-
-//   .player {
-//     display: flex;
-//     align-items: center;
-//   }
-
-//   .player-name {
-//     padding: 8px;
-//     font-weight: bold;
-//   }
-// `;
-
 export const ButtonGroup = styled.div`
   display: flex;
   width: 100%;
@@ -153,7 +148,7 @@ export const Button = styled.div`
   color: white;
   background-color: purple;
   padding: 8px;
-  width: 200px;
+  width: 180px;
   height: 55px;
   cursor: pointer;
   font-weight: bold;
@@ -161,30 +156,8 @@ export const Button = styled.div`
   transition: background-color 0.3s ease;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    width: 132px;
+  }
 `;
-
-// .remove-player {
-//   background-color: red;
-// }
-//   .add-remove-players {
-//   }
-
-//   .player-list {
-//     border: 2px solid black;
-//     margin: 16px 0 24px 0;
-//   }
-
-//   .groups {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//   }
-
-//   .rounds {
-//     display: flex;
-//     flex-direction: column;
-//     margin-left: 16px;
-//   }
-// `;
-
-// export const DoublesStyle = styled.div``;

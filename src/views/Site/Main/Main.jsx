@@ -7,12 +7,17 @@ const Main = () => {
         <h1>Sorteador Online</h1>
       </Style.Title>
       <Style.Content>
-        <Style.Subtitle>
-          <h2>
-            Realize sorteios para torneios de beach tennis e padel de forma
+        <Style.Text>
+          <li>Realize sorteios.</li>
+          <li>
+            Crie e gerencie seus torneios de beach tennis e padel de forma
             rápida e fácil.
-          </h2>
-        </Style.Subtitle>
+          </li>
+          <li>
+            Faça download dos grupos e tabelas de jogos em arquivos nos formatos
+            PDF e XLSX.
+          </li>
+        </Style.Text>
       </Style.Content>
     </Style.Container>
   );

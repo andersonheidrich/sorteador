@@ -134,11 +134,7 @@ const American = () => {
               </div>
             </div>
 
-            <Style.Button
-              className="groups-button"
-              onClick={handleDraw}
-              disabled={players.length < 4}
-            >
+            <Style.Button onClick={handleDraw} disabled={players.length < 4}>
               Sortear Grupos
             </Style.Button>
           </Style.Groups>
