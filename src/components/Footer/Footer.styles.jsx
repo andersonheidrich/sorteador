@@ -6,6 +6,8 @@ export const Container = styled.div`
   padding: 60px;
   align-items: center;
   font-family: Barlow, sans-serif;
+  color: #f1c615;
+  background-color: #000000;
 
   h1 {
     @media screen and (max-width: 1024px) {
