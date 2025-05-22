@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <Routes>
       <Route path="/" element={<Main />} />
-      {/* <Route path="/login" element={<LoginPage />} /> */}
+      <Route path="/login" element={<LoginPage />} />
       {/* <Route path="*" element={<LoginPage />} /> */}
       {/* <Route path="/perfil" element={<Profile />} /> */}
       <Route path="/sorteio" element={<Drawing />} />

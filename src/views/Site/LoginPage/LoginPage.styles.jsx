@@ -9,12 +9,21 @@ export const Container = styled.div`
 `;
 
 export const Box = styled.div`
-  background-color: white;
+  background-color: #000000;
+  color: #f1c615;
   padding: 2rem;
   border-radius: 12px;
   width: 100%;
   max-width: 400px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  @media screen and (max-width: 375px) {
+    max-width: 350px;
+  }
+
+  @media screen and (max-width: 320px) {
+    max-width: 305px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -34,8 +43,10 @@ export const Input = styled.input`
 export const Button = styled.button`
   width: 100%;
   padding: 0.75rem;
-  background-color: #007bff;
-  color: white;
+  /* background-color: #007bff; */
+  background-color: #f1c615;
+  color: #000000;
+  /* color: white; */
   font-weight: bold;
   border: none;
   border-radius: 8px;
@@ -43,7 +54,8 @@ export const Button = styled.button`
   margin-top: 0.5rem;
 
   &:hover {
-    background-color: #0056b3;
+    /* background-color: #0056b3; */
+    background-color: #b99811;
   }
 `;
 
@@ -52,7 +64,8 @@ export const ToggleText = styled.p`
   margin-top: 1rem;
   font-size: 0.9rem;
   cursor: pointer;
-  color: #007bff;
+  /* color: #007bff; */
+  color: #f1c615;
   &:hover {
     text-decoration: underline;
   }

@@ -9,10 +9,13 @@ const Header = () => {
       <Style.Navigation>
         <Style.Menu>
           <div className="menu-item">
-            <span onClick={() => navigate("/")}>Home</span>
+            <span onClick={() => navigate("/")}>Início</span>
           </div>
           <div className="menu-item">
             <span onClick={() => navigate("/sorteio")}>Sorteio</span>
+          </div>
+          <div className="menu-item">
+            <span onClick={() => navigate("/login")}>Login</span>
           </div>
           {/* <div className="menu-item">
             {isLoggedIn ? (
