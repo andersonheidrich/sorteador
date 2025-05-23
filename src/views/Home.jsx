@@ -14,7 +14,7 @@ const Home = () => {
       <Route path="/" element={<Main />} />
       <Route path="/login" element={<LoginPage />} />
       {/* <Route path="*" element={<LoginPage />} /> */}
-      {/* <Route path="/perfil" element={<Profile />} /> */}
+      <Route path="/perfil" element={<Profile />} />
       <Route path="/sorteio" element={<Drawing />} />
       <Route path="/sorteio/americano" element={<American />} />
       <Route path="/sorteio/americano/grupos" element={<AmericanGroups />} />

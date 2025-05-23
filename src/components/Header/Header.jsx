@@ -17,6 +17,9 @@ const Header = () => {
           <div className="menu-item">
             <span onClick={() => navigate("/login")}>Login</span>
           </div>
+          <div className="menu-item">
+            <span onClick={() => navigate("/perfil")}>Meu Perfil</span>
+          </div>
           {/* <div className="menu-item">
             {isLoggedIn ? (
               <span onClick={handleLogout}>Logout</span>
