@@ -65,98 +65,106 @@ const Profile = () => {
   return (
     <Style.Container>
       <Style.Profile>
-        <Style.Title>Meu Perfil</Style.Title>
-        {error && <Style.Error>{error}</Style.Error>}
-        <Style.Boxes>
-          <Style.LeftBox>
-            <Style.Subtitle>Meus Dados:</Style.Subtitle>
-            <form onSubmit={handleSubmit}>
-              <span>Nome:</span>
-              <Style.Input
-                type="text"
-                name="name"
-                placeholder="Nome"
-                value={form.name}
-                onChange={handleChange}
-              />
-              <span>E-mail:</span>
-              <Style.Input
-                type="email"
-                name="email"
-                placeholder="Novo e-mail (opcional)"
-                value={form.email}
-                onChange={handleChange}
-              />
-              <span>Senha:</span>
-              <Style.Input
-                type="password"
-                name="password"
-                placeholder="Nova senha (opcional)"
-                value={form.password}
-                onChange={handleChange}
-              />
-              <span>Adicionar Esporte:</span>
-              <Style.AddSport>
-                <Style.Select
-                  value={newSport}
-                  onChange={(e) => setNewSport(e.target.value)}
-                  style={{ marginRight: "16px" }}
-                >
-                  <option value="">Selecionar esporte</option>
-                  <option value="beach-tennis">Beach Tennis</option>
-                  <option value="padel">Padel</option>
-                  <option value="tenis">Tênis</option>
-                  <option value="a">A</option>
-                  <option value="b">B</option>
-                  <option value="c">C</option>
-                  <option value="d">D</option>
-                  <option value="e">E</option>
-                  <option value="f">F</option>
-                </Style.Select>
-                <Style.Button
-                  type="button"
-                  onClick={addSport}
-                  className="add-button"
-                >
-                  Adicionar
-                </Style.Button>
-              </Style.AddSport>
-            </form>
-          </Style.LeftBox>
-          <Style.RightBox>
-            <Style.Subtitle>Meus Esportes:</Style.Subtitle>
-            <Style.Cards>
-              {form.sports.map((sport, index) => (
-                <Style.Card key={index}>
-                  <div className="sport">{sport.name}</div>
-                  <div className="category">
-                    <span>Categoria:</span>
-                    <Style.Select
-                      value={sport.category}
-                      onChange={(e) => handleSportChange(index, e.target.value)}
-                      style={{ marginBottom: "8px" }}
-                    >
-                      <option value="">Selecione</option>
-                      <option value="E">E</option>
-                      <option value="D">D</option>
-                      <option value="C">C</option>
-                      <option value="B">B</option>
-                      <option value="A">A</option>
-                      <option value="Pro">Pro</option>
-                    </Style.Select>
-                  </div>
+        <Style.Content>
+          <Style.Title>Meu Perfil</Style.Title>
+          {error && <Style.Error>{error}</Style.Error>}
+          <Style.Boxes>
+            <Style.LeftBox>
+              <Style.Subtitle>Meus Dados:</Style.Subtitle>
+              <form onSubmit={handleSubmit}>
+                <span>Nome:</span>
+                <Style.Input
+                  type="text"
+                  name="name"
+                  placeholder="Nome"
+                  value={form.name}
+                  onChange={handleChange}
+                />
+                <span>E-mail:</span>
+                <Style.Input
+                  type="email"
+                  name="email"
+                  placeholder="Novo e-mail (opcional)"
+                  value={form.email}
+                  onChange={handleChange}
+                />
+                <span>Senha:</span>
+                <Style.Input
+                  type="password"
+                  name="password"
+                  placeholder="Nova senha (opcional)"
+                  value={form.password}
+                  onChange={handleChange}
+                />
+                <span>Adicionar Esporte:</span>
+                <Style.AddSport>
+                  <Style.Select
+                    value={newSport}
+                    onChange={(e) => setNewSport(e.target.value)}
+                    style={{ marginRight: "16px" }}
+                  >
+                    <option value="">Selecionar</option>
+                    <option value="beach-tennis">Beach Tennis</option>
+                    <option value="padel">Padel</option>
+                    <option value="tenis">Tênis</option>
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="c">C</option>
+                    <option value="d">D</option>
+                    <option value="e">E</option>
+                    <option value="f">F</option>
+                  </Style.Select>
                   <Style.Button
                     type="button"
-                    onClick={() => removeSport(index)}
+                    onClick={addSport}
+                    className="add-button"
                   >
-                    Remover
+                    Adicionar
                   </Style.Button>
-                </Style.Card>
-              ))}
-            </Style.Cards>
-          </Style.RightBox>
-        </Style.Boxes>
-        <Style.Button type="submit">Salvar Alterações</Style.Button>
+                </Style.AddSport>
+              </form>
+            </Style.LeftBox>
+            <Style.RightBox>
+              <Style.Subtitle>Meus Esportes:</Style.Subtitle>
+              <Style.Cards>
+                {form.sports.map((sport, index) => (
+                  <Style.Card key={index}>
+                    <div className="sport">{sport.name}</div>
+                    <div className="category">
+                      <span>Categoria:</span>
+                      <Style.Select
+                        value={sport.category}
+                        onChange={(e) =>
+                          handleSportChange(index, e.target.value)
+                        }
+                        style={{ marginBottom: "8px" }}
+                      >
+                        <option value="">Selecionar</option>
+                        <option value="E">E</option>
+                        <option value="D">D</option>
+                        <option value="C">C</option>
+                        <option value="B">B</option>
+                        <option value="A">A</option>
+                        <option value="Pro">Pro</option>
+                      </Style.Select>
+                    </div>
+                    <div className="delete-card">
+                      <Style.Button
+                        type="button"
+                        onClick={() => removeSport(index)}
+                      >
+                        Remover
+                      </Style.Button>
+                    </div>
+                  </Style.Card>
+                ))}
+              </Style.Cards>
+            </Style.RightBox>
+          </Style.Boxes>
+        </Style.Content>
+        <Style.Button type="submit" className="save-button">
+          Salvar Alterações
+        </Style.Button>
       </Style.Profile>
     </Style.Container>
   );

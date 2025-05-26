@@ -9,6 +9,7 @@ export const Container = styled.div`
   min-height: 90%;
   font-family: Raleway, sans-serif;
   color: #f1c615;
+  background-color: black;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   background-image: url(${BGimg});
   background-repeat: no-repeat;
