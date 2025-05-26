@@ -10,6 +10,55 @@ export const Container = styled.div`
   font-family: Raleway, sans-serif;
 `;
 
+export const Profile = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  color: #f1c615;
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 96%;
+  min-height: 774px;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 28px 0;
+
+  span {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin: 24px 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 16px 0;
+  }
+
+  @media screen and (max-width: 425px) {
+    margin: 12px 0;
+    max-width: 400px;
+  }
+
+  @media screen and (max-width: 375px) {
+    max-width: 350px;
+  }
+
+  @media screen and (max-width: 320px) {
+    margin: 8px 0;
+    max-width: 305px;
+  }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
 export const Title = styled.h2`
   text-align: center;
   margin-bottom: 20px;
@@ -40,37 +89,6 @@ export const Subtitle = styled.div`
   }
 `;
 
-export const Profile = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #000000;
-  color: #f1c615;
-  padding: 24px;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 96%;
-  height: 780px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-
-  span {
-    font-size: 18px;
-  }
-
-  @media screen and (max-width: 425px) {
-    max-width: 400px;
-  }
-
-  @media screen and (max-width: 375px) {
-    max-width: 350px;
-  }
-
-  @media screen and (max-width: 320px) {
-    max-width: 305px;
-  }
-`;
-
 export const Boxes = styled.div`
   display: flex;
   width: 100%;
@@ -87,6 +105,10 @@ export const LeftBox = styled.div`
   align-items: center;
   min-width: 30%;
   padding: 8px;
+
+  @media screen and (max-width: 425px) {
+    padding: 0;
+  }
 `;
 
 export const AddSport = styled.div`
@@ -104,13 +126,25 @@ export const RightBox = styled.div`
   flex-direction: column;
   min-width: 70%;
   padding: 8px;
+
+  @media screen and (max-width: 425px) {
+    padding: 0;
+  }
 `;
 
 export const Cards = styled.div`
   display: grid;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 32% 32% 32%;
   justify-content: space-between;
   margin-top: 24px;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 49% 49%;
+  }
+
+  @media screen and (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Card = styled.div`
@@ -135,6 +169,11 @@ export const Card = styled.div`
       margin-bottom: 4px;
     }
   }
+
+  .delete-card {
+    display: flex;
+    justify-content: flex-end;
+  }
 `;
 
 export const Input = styled.input`
@@ -157,7 +196,7 @@ export const Select = styled.select`
 `;
 
 export const Button = styled.button`
-  width: 25%;
+  /* width: 25%; */
   padding: 12px;
   background-color: #f1c615;
   color: #000000;
