@@ -40,16 +40,10 @@ export const Profile = styled.div`
 
   @media screen and (max-width: 425px) {
     margin: 12px 0;
-    max-width: 400px;
-  }
-
-  @media screen and (max-width: 375px) {
-    max-width: 350px;
   }
 
   @media screen and (max-width: 320px) {
     margin: 8px 0;
-    max-width: 305px;
   }
 `;
 

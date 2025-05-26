@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  height: 90%;
+  width: 100%;
+  min-height: 90%;
   align-items: center;
   justify-content: center;
   font-family: Raleway, sans-serif;
@@ -16,14 +17,7 @@ export const Box = styled.div`
   width: 100%;
   max-width: 400px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-  @media screen and (max-width: 375px) {
-    max-width: 350px;
-  }
-
-  @media screen and (max-width: 320px) {
-    max-width: 305px;
-  }
+  margin: 0 4px;
 `;
 
 export const Title = styled.h2`
