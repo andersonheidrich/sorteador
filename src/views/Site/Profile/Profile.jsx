@@ -6,12 +6,46 @@ const Profile = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "Teste da Silva",
+    address: "",
+    city: "",
+    state: "",
     sports: [],
     email: "",
     password: "",
   });
   const [newSport, setNewSport] = useState("");
+  const [state, setState] = useState("");
   const [error, setError] = useState("");
+
+  const estadosBrasil = [
+    "AC",
+    "AL",
+    "AM",
+    "AP",
+    "BA",
+    "CE",
+    "DF",
+    "ES",
+    "GO",
+    "MA",
+    "MG",
+    "MS",
+    "MT",
+    "PA",
+    "PB",
+    "PE",
+    "PI",
+    "PR",
+    "RJ",
+    "RN",
+    "RO",
+    "RR",
+    "RS",
+    "SC",
+    "SE",
+    "SP",
+    "TO",
+  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -80,6 +114,57 @@ const Profile = () => {
                   value={form.name}
                   onChange={handleChange}
                 />
+                <span>Endereço:</span>
+                <Style.Input
+                  type="text"
+                  name="address"
+                  placeholder="Endereço"
+                  value={form.address}
+                  onChange={handleChange}
+                />
+                <span>Cidade:</span>
+                <Style.Input
+                  type="text"
+                  name="city"
+                  placeholder="Cidade"
+                  value={form.city}
+                  onChange={handleChange}
+                />
+                <span>Estado:</span>
+                <Style.Select
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                  style={{ marginRight: "16px" }}
+                >
+                  <option value="">Selecionar</option>
+                  <option value="estado-ac">AC (Acre)</option>
+                  <option value="estado-al">AL (Alagoas)</option>
+                  <option value="estado-am">AM (Amazonas)</option>
+                  <option value="estado-ap">AP (Amapá)</option>
+                  <option value="estado-ba">BA (Bahia)</option>
+                  <option value="estado-ce">CE (Ceará)</option>
+                  <option value="estado-df">DF (Distrito Federal)</option>
+                  <option value="estado-es">ES (Espírito Santo)</option>
+                  <option value="estado-go">GO (Goiás)</option>
+                  <option value="estado-ma">MA (Maranhão)</option>
+                  <option value="estado-mg">MG (Minas Gerais)</option>
+                  <option value="estado-ms">MS (Mato Grosso do Sul)</option>
+                  <option value="estado-mt">MT (Mato Grosso)</option>
+                  <option value="estado-pa">PA (Pará)</option>
+                  <option value="estado-pb">PB (Paraíba)</option>
+                  <option value="estado-pe">PE (Pernambuco)</option>
+                  <option value="estado-pi">PI (Piauí)</option>
+                  <option value="estado-pr">PR (Paraná)</option>
+                  <option value="estado-rj">RJ (Rio de Janeiro)</option>
+                  <option value="estado-rn">RN (Rio Grande do Norte)</option>
+                  <option value="estado-ro">RO (Rondônia)</option>
+                  <option value="estado-rr">RR (Roraima)</option>
+                  <option value="estado-rs">RS (Rio Grande do Sul)</option>
+                  <option value="estado-sc">SC (Santa Catarina)</option>
+                  <option value="estado-se">SE (Sergipe)</option>
+                  <option value="estado-sp">SP (São Paulo)</option>
+                  <option value="estado-to">TO (Tocantins)</option>
+                </Style.Select>
                 <span>E-mail:</span>
                 <Style.Input
                   type="email"
